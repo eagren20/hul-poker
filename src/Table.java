@@ -11,6 +11,7 @@ import java.util.Scanner;
  */
 public class Table {
 
+    
     private Hand playerHand;
     private Hand mercHand;
 
@@ -34,6 +35,9 @@ public class Table {
     private Card[] cards;
     private Card[] board;
 
+    /**
+     * Constructor for the table class
+     */
     public Table() {
 
         playerBalance = 2000;
@@ -57,6 +61,12 @@ public class Table {
         board = new Card[5];
     }
 
+    /**
+     * Takes the number of hands to be played as input and begins the game
+     * 
+     * @param args
+     *            the command line input
+     */
     public static void main(String args[])
     {
 
@@ -69,209 +79,221 @@ public class Table {
 
     }
 
+    /**
+     * Deals and plays one hand
+     * 
+     * @param round
+     *            an int corresponding to the current hand number i.e. the 51st
+     *            hand would be 51
+     */
     public void playHand(int round)
     {
 
-        this.dealHand();
-
-        if (playPre(round)) {
-
-            playPost(round);
-        }
-
-    }
-
-    public boolean playPre(int round)
-    {
-        // merc is button
-        if (round % 2 == 0) {
-
-            // post blinds
-            if (street == 0) {
-                mercBalance -= 10;
-                playerBalance -= 20;
-                pot += 30;
-            }
-
-            System.out.println(getInfo());
-
-            
-        }
-
-        // player is button
-        else {
-
-            // post blinds
-            if (street == 0) {
-                mercBalance -= 20;
-                playerBalance -= 10;
-                pot += 30;
-            }
-
-            System.out.println(getInfo());
-            mercAction = merc.act(playerAction, street, false);
-
-            switch (mercAction) {
-            case 0:
-                fold = true;
-                System.out.println("merc folds");
-                break;
-
-            case 1:
-                System.out.println("merc checks");
-                break;
-            case 2:
-                System.out.println("merc calls");
-                break;
-            case 3:
-                System.out.println("merc raises");
-                break;
-            default:
-                System.out.println("error: invalid merc action");
-                return false;
-            }
-        }
+//        this.dealHand();
+//
+//        if (playPre(round)) {
+//
+//            playPost(round);
+//        }
 
     }
 
-    public boolean playPost(int round)
-    {
+    // public boolean playPre(int round)
+    // {
+    // // merc is button
+    // if (round % 2 == 0) {
+    //
+    // // post blinds
+    // if (street == 0) {
+    // mercBalance -= 10;
+    // playerBalance -= 20;
+    // pot += 30;
+    // }
+    //
+    // System.out.println(getInfo());
+    //
+    //
+    // }
+    //
+    // // player is button
+    // else {
+    //
+    // // post blinds
+    // if (street == 0) {
+    // mercBalance -= 20;
+    // playerBalance -= 10;
+    // pot += 30;
+    // }
+    //
+    // System.out.println(getInfo());
+    // mercAction = merc.act(playerAction, street, false);
+    //
+    // switch (mercAction) {
+    // case 0:
+    // fold = true;
+    // System.out.println("merc folds");
+    // break;
+    //
+    // case 1:
+    // System.out.println("merc checks");
+    // break;
+    // case 2:
+    // System.out.println("merc calls");
+    // break;
+    // case 3:
+    // System.out.println("merc raises");
+    // break;
+    // default:
+    // System.out.println("error: invalid merc action");
+    // return false;
+    // }
+    // }
+    //
+    // }
+    //
+    // public boolean playPost(int round)
+    // {
+    //
+    // while (!fold) {
+    //
+    // System.out.println("Your hand: " + playerHand.getString());
+    //
+    // switch (street) {
+    // case 0:
+    // break;
+    // case 1:
+    //
+    // System.out.println("Flop: " + getFlop());
+    // break;
+    // case 2:
+    // System.out.println("Turn: " + getTurn());
+    // break;
+    // case 3:
+    // System.out.println("River: " + getRiver());
+    // break;
+    // }
+    //
+    // // merc is button
+    // if (round % 2 == 0) {
+    //
+    // // post blinds
+    // if (street == 0) {
+    // mercBalance -= 10;
+    // playerBalance -= 20;
+    // pot += 30;
+    // }
+    //
+    // System.out.println(getInfo());
+    //
+    // // merc acts
+    // mercAction = merc.act(playerAction, street, true);
+    //
+    // switch (mercAction) {
+    // case 0:
+    // fold = true;
+    // System.out.println("merc folds");
+    // break;
+    //
+    // case 1:
+    // System.out.println("merc checks");
+    // break;
+    // case 2:
+    // System.out.println("merc calls");
+    // break;
+    // case 3:
+    // System.out.println("merc raises");
+    // break;
+    // default:
+    // System.out.println("error: invalid merc action");
+    // return false;
+    // }
+    //
+    // // you act
+    //
+    // while (true) {
+    // System.out.print("Please enter your action: ");
+    // input = scanner.nextLine();
+    //
+    // if (input.equals("fold") || input.equals("check")
+    // || input.equals("call") || input.equals("raise")) {
+    // break;
+    //
+    // }
+    // else {
+    // System.out.println(
+    // "Invalid input, please enter \"fold\", \"check\", "
+    // + "\"call\", or \"raise\"");
+    // }
+    // }
+    //
+    // switch (input) {
+    //
+    // case "fold":
+    // playerAction = 0;
+    // break;
+    // case "check":
+    // playerAction = 1;
+    // break;
+    // case "call":
+    // playerAction = 2;
+    // break;
+    // case "raise":
+    // playerAction = 3;
+    // break;
+    // default:
+    // System.out.println("Error: invalid player action");
+    // return false;
+    // }
+    //
+    // // update pot/balances
+    //
+    // }
+    //
+    // // player is button
+    // else {
+    //
+    // // post blinds
+    // if (street == 0) {
+    // mercBalance -= 20;
+    // playerBalance -= 10;
+    // pot += 30;
+    // }
+    //
+    // System.out.println(getInfo());
+    // mercAction = merc.act(playerAction, street, false);
+    //
+    // switch (mercAction) {
+    // case 0:
+    // fold = true;
+    // System.out.println("merc folds");
+    // break;
+    //
+    // case 1:
+    // System.out.println("merc checks");
+    // break;
+    // case 2:
+    // System.out.println("merc calls");
+    // break;
+    // case 3:
+    // System.out.println("merc raises");
+    // break;
+    // default:
+    // System.out.println("error: invalid merc action");
+    // return false;
+    // }
+    // }
+    // street++;
+    // }
+    // }
 
-        while (!fold) {
-
-            System.out.println("Your hand: " + playerHand.getString());
-
-            switch (street) {
-            case 0:
-                break;
-            case 1:
-
-                System.out.println("Flop: " + getFlop());
-                break;
-            case 2:
-                System.out.println("Turn: " + getTurn());
-                break;
-            case 3:
-                System.out.println("River: " + getRiver());
-                break;
-            }
-
-            // merc is button
-            if (round % 2 == 0) {
-
-                // post blinds
-                if (street == 0) {
-                    mercBalance -= 10;
-                    playerBalance -= 20;
-                    pot += 30;
-                }
-
-                System.out.println(getInfo());
-
-                // merc acts
-                mercAction = merc.act(playerAction, street, true);
-
-                switch (mercAction) {
-                case 0:
-                    fold = true;
-                    System.out.println("merc folds");
-                    break;
-
-                case 1:
-                    System.out.println("merc checks");
-                    break;
-                case 2:
-                    System.out.println("merc calls");
-                    break;
-                case 3:
-                    System.out.println("merc raises");
-                    break;
-                default:
-                    System.out.println("error: invalid merc action");
-                    return false;
-                }
-
-                // you act
-
-                while (true) {
-                    System.out.print("Please enter your action: ");
-                    input = scanner.nextLine();
-
-                    if (input.equals("fold") || input.equals("check")
-                            || input.equals("call") || input.equals("raise")) {
-                        break;
-
-                    }
-                    else {
-                        System.out.println(
-                                "Invalid input, please enter \"fold\", \"check\", "
-                                        + "\"call\", or \"raise\"");
-                    }
-                }
-
-                switch (input) {
-
-                case "fold":
-                    playerAction = 0;
-                    break;
-                case "check":
-                    playerAction = 1;
-                    break;
-                case "call":
-                    playerAction = 2;
-                    break;
-                case "raise":
-                    playerAction = 3;
-                    break;
-                default:
-                    System.out.println("Error: invalid player action");
-                    return false;
-                }
-
-                // update pot/balances
-
-            }
-
-            // player is button
-            else {
-
-                // post blinds
-                if (street == 0) {
-                    mercBalance -= 20;
-                    playerBalance -= 10;
-                    pot += 30;
-                }
-
-                System.out.println(getInfo());
-                mercAction = merc.act(playerAction, street, false);
-
-                switch (mercAction) {
-                case 0:
-                    fold = true;
-                    System.out.println("merc folds");
-                    break;
-
-                case 1:
-                    System.out.println("merc checks");
-                    break;
-                case 2:
-                    System.out.println("merc calls");
-                    break;
-                case 3:
-                    System.out.println("merc raises");
-                    break;
-                default:
-                    System.out.println("error: invalid merc action");
-                    return false;
-                }
-            }
-            street++;
-        }
-    }
-
+    /**
+     * Preflop action when merc is on the button
+     * 
+     * @return true if hand continues, false if someone folded
+     */
     public boolean playPreMerc()
     {
-     // merc acts
+        // merc acts
         mercAction = merc.act(playerAction, street, true);
 
         switch (mercAction) {
@@ -330,26 +352,43 @@ public class Table {
             System.out.println("Error: invalid player action");
             return false;
         }
-        
-        
 
         // update pot/balances
 
+        return true;
     }
 
+    /**
+     * Preflop action when player is on the button
+     * 
+     * @return true if hand continues, false if someone folded
+     */
     public boolean playPrePlayer()
     {
-
+        //TODO implement
+        return false;
     }
 
+    /**
+     * Postflop action if merc is on the button
+     * 
+     * @return true if hand continues, false if someone folded
+     */
     public boolean playPostMerc()
     {
-
+      //TODO implement
+        return false;
     }
 
+    /**
+     * Postflop action if player is on the button
+     * 
+     * @return true if hand continues, false if someone folded
+     */
     public boolean playPostPlayer()
     {
-
+      //TODO implement
+        return false;
     }
 
     /**
@@ -385,6 +424,11 @@ public class Table {
 
     }
 
+    /**
+     * Returns a string containing the flop
+     * 
+     * @return the flop
+     */
     public String getFlop()
     {
 
@@ -392,6 +436,11 @@ public class Table {
                 + cards[6].getString();
     }
 
+    /**
+     * Returns a string containing the flop + turn
+     * 
+     * @return the flop + turn
+     */
     public String getTurn()
     {
 
@@ -399,6 +448,11 @@ public class Table {
                 + cards[6].getString() + " + " + cards[7].getString();
     }
 
+    /**
+     * Returns a string containing the flop + turn + river
+     * 
+     * @return the flop + turn + river
+     */
     public String getRiver()
     {
 
@@ -408,7 +462,9 @@ public class Table {
     }
 
     /**
-     * Outputs your hand, the values of both player balances, and the pot
+     * Returns the player hand, the values of both player balances, and the pot
+     * 
+     * @return the current info
      */
     public String getInfo()
     {

@@ -12,123 +12,154 @@ public class Card {
     private int value;
     // 1 = diamonds, 2 = hearts, 3 = clubs, 4 = spades
     private int suit;
-    
-    public Card(){
+
+    /**
+     * Constructor for the Card class
+     */
+    public Card() {
         value = 0;
         suit = 0;
     }
-    
-    public Card(int x, int y){
-        
+
+    /**
+     * Alternate constructor to create a specific card
+     * 
+     * @param x
+     *            the value
+     * @param y
+     *            the suit
+     */
+    public Card(int x, int y) {
+
         value = x;
         suit = y;
     }
-   
-    public void setCard(int newVal, int newSuit){
+
+    /**
+     * Sets the contents of a Card to a specific value and suit
+     * 
+     * @param newVal
+     *            the specified value
+     * @param newSuit
+     *            the specified suit
+     */
+    public void setCard(int newVal, int newSuit)
+    {
         value = newVal;
         suit = newSuit;
     }
-    
-    public int getValue(){
+
+    /**
+     * Returns the value of the Card
+     * 
+     * @return the value
+     */
+    public int getValue()
+    {
         return this.value;
     }
-    
-    public int getSuit(){
+
+    /**
+     * Returns the suit of the card
+     * 
+     * @return the suit
+     */
+    public int getSuit()
+    {
         return this.suit;
     }
-    
-    public String getString(){
-        
+
+    /**
+     * Returns a String representation of the Card
+     * 
+     * @return the card's string
+     */
+    public String getString()
+    {
+
         String cardString = "";
-        
+
         switch (value) {
-        case 2 : 
+        case 2:
             cardString = "2";
             break;
-            
-        case 3 : 
+
+        case 3:
             cardString = "3";
             break;
-            
-        case 4 : 
+
+        case 4:
             cardString = "4";
             break;
-            
-        case 5 : 
+
+        case 5:
             cardString = "5";
             break;
-            
-        case 6 : 
+
+        case 6:
             cardString = "6";
             break;
-            
-        case 7 : 
+
+        case 7:
             cardString = "7";
             break;
-            
-        case 8 : 
+
+        case 8:
             cardString = "8";
             break;
-            
-        case 9 : 
+
+        case 9:
             cardString = "9";
             break;
-            
-        case 10 : 
+
+        case 10:
             cardString = "T";
             break;
-            
-        case 11 : 
+
+        case 11:
             cardString = "J";
             break;
-            
-        case 12 : 
+
+        case 12:
             cardString = "Q";
             break;
-             
-        case 13 : 
+
+        case 13:
             cardString = "K";
             break;
-            
-        case 14 : 
+
+        case 14:
             cardString = "A";
             break;
-            
-        default : 
+
+        default:
             cardString = "invalid";
-            
+
         }
-        
+
         switch (suit) {
-        
-        case 1 : 
+
+        case 1:
             cardString += "d";
             break;
-            
-        case 2 : 
+
+        case 2:
             cardString += "h";
             break;
-             
-        case 3 : 
+
+        case 3:
             cardString += "c";
             break;
-            
-        case 4 : 
+
+        case 4:
             cardString += "s";
             break;
-            
-        default : 
+
+        default:
             cardString += "invalid";
         }
-        
+
         return cardString;
-            
-            
-            
-            
-            
-            
-            
-       
+
     }
 }

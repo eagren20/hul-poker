@@ -5,11 +5,11 @@
  *
  */
 public class Merc {
-
-    
+    // the range of all of merc's possible hands
+    private Card[] range;
     
     public Merc(){
-        
+        range = new Card[52];
     }
     
     
@@ -19,6 +19,6 @@ public class Merc {
      * @return int the preflop action
      */
     public int act(int prevAction, int street, boolean button){
-        
+        return -1;
     }
 }
